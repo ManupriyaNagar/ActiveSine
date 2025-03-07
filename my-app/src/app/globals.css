@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --color-green: #529a34;
+  --color-blue: #203665;
+  --color-black: #000000;
+  --color-light: #cad4cc;
+  --color-dark-green: #3c6b4c;
+  --color-light-green: #83b573;
+  --color-grey-blue: #8391a7;
+  --color-para: #76797d;
+  --color-lightest-green: #779082;
+  --color-medium-green: #3c8444;
+}
+
+/* Utility classes */
+.text-green {
+  color: var(--color-green);
+}
+.text-blue {
+  color: var(--color-blue);
+}
+.text-black {
+  color: var(--color-black);
+}
+.text-light {
+  color: var(--color-light);
+}
+.text-dark-green {
+  color: var(--color-dark-green);
+}
+.text-light-green {
+  color: var(--color-light-green);
+}
+.text-grey-blue {
+  color: var(--color-grey-blue);
+}
+.text-para {
+  color: var(--color-para);
+}
+.text-lightest-green {
+  color: var(--color-lightest-green);
+}
+.text-medium-green {
+  color: var(--color-medium-green);
+}
+
+.bg-green {
+  background-color: var(--color-green);
+}
+.bg-blue {
+  background-color: var(--color-blue);
+}
+.bg-black {
+  background-color: var(--color-black);
+}
+.bg-light {
+  background-color: var(--color-light);
+}
+.bg-dark-green {
+  background-color: var(--color-dark-green);
+}
+.bg-light-green {
+  background-color: var(--color-light-green);
+}
+.bg-grey-blue {
+  background-color: var(--color-grey-blue);
+}
+.bg-lightest-green {
+  background-color: var(--color-lightest-green);
+}
+.bg-medium-green {
+  background-color: var(--color-medium-green);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
