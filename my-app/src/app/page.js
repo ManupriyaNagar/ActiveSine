@@ -5,6 +5,7 @@ import Footer from "./components/Home/Footer";
 import Header from "./components/Home/Header";
 import HeroSection from "./components/Home/Hero";
 import PowerQualitySolutions from "./components/Home/InPhase";
+
 import WhyChooseUs from "./components/Home/WhyToChoose";
 
 export default function Page() {
@@ -12,10 +13,10 @@ export default function Page() {
     <div>
       <Header/>
       <Banner/>
+      {/* <ProductsPage/> */}
       <HeroSection/>
       <FeatureSection/>
       <WhyChooseUs/>
-      
       <PowerQualitySolutions/>
       <ContactSection/>
       {/* <Footer/> */}

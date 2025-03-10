@@ -1,5 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,10 +45,10 @@ const Header = () => {
           <a href="#about" className="text-gray-800 hover:text-gray-600">
             HOME
           </a>
-          <a href="#products" className="text-gray-800 hover:text-gray-600">
+          <a href="/products" className="text-gray-800 hover:text-gray-600">
             SOLUTIONS
           </a>
-          <a href="#solutions" className="text-gray-800 hover:text-gray-600">
+          <a href="/products" className="text-gray-800 hover:text-gray-600">
             PRODUCTS
           </a>
           <a href="#partner" className="text-gray-800 hover:text-gray-600">
@@ -62,11 +64,13 @@ const Header = () => {
         <div className="flex items-center space-x-4">
 
           {/* Contact Button */}
+          <Link href="/contact-us">
           <button
             className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-900 to-blue-500 text-white font-semibold hover:opacity-90"
-          >
+            >
             Contact
           </button>
+          </Link>
         </div>
       </div>
     </header>

@@ -64,7 +64,7 @@ export default function ContactSection() {
           <div key={index} className="bg-white shadow-lg rounded-lg p-6 w-64">
             <h3 className="text-lg font-semibold text-blue-600">{office.city}</h3>
             <p className="text-gray-600 text-sm mb-2">{office.address}</p>
-            <p className="text-gray-800 font-bold mb-4">7798931936</p>
+            <p className="text-gray-800 font-bold mb-4">1111111111</p>
             <div className="flex gap-2">
               <button className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Call</button>
               <button className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-gray-500">Message</button>

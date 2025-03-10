@@ -1,31 +1,63 @@
-'use client';
-import React from "react";
-import { motion } from "framer-motion"; // For smooth animation
+"use client";
 
-const Banner = () => {
+import { useState, useRef } from "react";
+import { Play } from "lucide-react";
+
+const BackgroundVideo = () => {
+  const [isPlayingWithSound, setIsPlayingWithSound] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef(null);
+
+  const handlePlayWithSound = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play();
+      setIsPlayingWithSound(true);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch((error) => console.error("Play interrupted:", error));
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+  
+
   return (
-    <motion.section
-      initial={{ opacity: 0, y: -50 }} // Initial hidden state
-      animate={{ opacity: 1, y: 0 }} // Smooth fade-in effect
-      transition={{ duration: 1 }} // Animation duration
-      className="relative w-full h-[500px] md:h-[600px] flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/banner.jpg')" }} // Add your image path
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        onClick={handleVideoClick}
+      >
+        <source src="/video2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      <div className="relative z-10 text-center text-white px-6">
-        <h1 className="text-3xl md:text-5xl font-bold">
-          Welcome to <span className="text-green-400">ACTIVESINE</span>
-        </h1>
-        <p className="mt-4 text-lg md:text-xl">
-          Your reliable energy solutions provider
-        </p>
-        <button className="mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition">
-          Get Started
-        </button>
-      </div>
-    </motion.section>
+      {/* Play Button */}
+      {!isPlayingWithSound && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <button
+            onClick={handlePlayWithSound}
+            className="bg-white text-black px-6 py-3 text-lg rounded-full shadow-lg hover:bg-gray-200 transition flex items-center"
+          >
+            <Play className="mr-2" /> Play with Sound
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default Banner;
+export default BackgroundVideo;
